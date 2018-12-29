@@ -1,0 +1,13 @@
+{
+    "url": "https://undefeated.com/products/nike-x-fear-of-god-nike-air-skylon-ii-white-black-sail?variant=18114204631113",
+    "baseurl": "https://undefeated.com/",
+    "auth_token_var": "Shopify.ClientAttributesCollection.checkoutToken",
+    "username": "",
+    "password": "",
+    "card":{
+        "number": "",
+        "name": "",
+        "expiry": "",
+        "cvv": ""
+    }
+}
