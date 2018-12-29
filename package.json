@@ -1,0 +1,26 @@
+{
+  "name": "shop-yoinker",
+  "version": "1.0.0",
+  "description": "Yoinks Shops >_>",
+  "main": "app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Movinggun/shop-yoinker.git"
+  },
+  "keywords": [
+    "Rustler",
+    "V7"
+  ],
+  "author": "Movinggun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Movinggun/shop-yoinker/issues"
+  },
+  "homepage": "https://github.com/Movinggun/shop-yoinker#readme",
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0-alpha.1"
+  }
+}
