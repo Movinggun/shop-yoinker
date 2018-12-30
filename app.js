@@ -14,6 +14,7 @@ var authToken = "";
 //-- Function will visit URL
 function Goto(url) {
     driver.get(url);
+    console.log('[Yoink V1]: Directing Browser to: ' + url);
 } 
 
 //--- ASYNC Sleep function
@@ -24,6 +25,7 @@ function Sleep(ms) {
 
 //---Kills the process and browser
 function Exit() {
+    console.log('[Yoink V1]: Killing Script. Exit Code: 0');
     driver.quit();
 }
 
@@ -49,14 +51,13 @@ function SubmitForm(form, type) {
         driver.findElement(By.id(form)).submit();
         console.log('[Yoink V1]: Submitting: ' + form);  
     }
-
 }
 
-///--- Aids functions to write card details...
+//--- Aids functions to write card details...
 async function PaymentInput(iframe, id, input) {
     driver.switchTo().frame(driver.findElement(By.css(iframe)));
     await Sleep (500);
-    driver.findElement(webdriver.By.id(id)).sendKeys(input);
+    driver.findElement(By.id(id)).sendKeys(input);
     await Sleep (500);
     driver.switchTo().defaultContent();
     await Sleep (500);
@@ -82,14 +83,14 @@ async function PaymentIWantToKillMyself(){
 async function BypassQueue() {
     driver.wait(until.elementLocated(By.id('checkout_shipping_address_zip')), 500000).then(function() {
         console.log("[Yoink V1]: Bypassing Shit Pages....")
-         driver.getCurrentUrl().then(function(url) {
-            driver.get(url + "?previous_step=shipping_method&step=payment_method");
+        driver.getCurrentUrl().then(function(url) {
+            Goto(url + "?previous_step=shipping_method&step=payment_method");
             console.log('[Yoink V1]: Redirecting to payment page. #GetFucked')
         });
     });
 }
 
-//--- I don't actually have a need for this anything but left it in for Rustler. Yoinks the Auth Token
+//--- I don't actually have a need for this anymore but left it in for Rustler. Yoinks the Auth Token
 async function YoinkAuthToken() {
     driver.wait(until.elementLocated(By.id('checkout_shipping_address_zip')), 500000).then(function() {
         let token = driver.executeScript("return " + config.auth_token_var);
